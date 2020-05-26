@@ -1,0 +1,88 @@
+* {
+    font-family: sans-serif;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#controlsUI, #scoreUI, #highscoreUI {
+    background-color: #ddd;
+    color: #222;;
+    /* display: inline-block; */
+}
+
+#game {
+    padding: 16px;
+    border-radius: 16px;
+    background-color: orange;
+    /* display: inline-block; */
+    max-width: 590px;
+    min-width: 590px;
+}
+
+.tile {
+    width: 128px;
+    height: 128px;
+    background-color: #666;
+    border-radius: 8px;
+    margin: 8px;
+    /* display: inline-block; */
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    /* vertical-align: center; */
+
+    text-shadow: 
+    -2px 1px 6px rgba(0, 0, 0, 0.69),
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+.tile > div {
+    font-size: 50px;
+    margin-top: 35px;
+    /* min-height: 128px; */
+    border: 1px red;
+}
+
+#gameover {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    user-select: none;
+    cursor: pointer;
+}
+
+.overlaytext {
+    position: absolute;
+    /* display: none; */
+    top: 40%;
+    left: 50%;
+    font-size: 64px;
+    color: white;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    text-shadow: 
+    -2px 1px 6px rgba(0, 0, 0, 0.69),
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+    width: 500px;
+}
+
+.subtext {
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    width: 500px;
+    transform: translate(-50%, 200%);
+}
