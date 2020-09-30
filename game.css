@@ -19,6 +19,8 @@
     flex-direction: column;
     min-height: 90vh;
     min-width: 165vh;
+    background-image: url(black.jpg);
+    color: palegoldenrod;
     /* position: absolute; */
 }
 
@@ -27,6 +29,7 @@
     /* align-items: center; */
     font-size: 50px;
     /* order: -1; */
+    color: orange;
 }
 
 #game {
