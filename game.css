@@ -6,8 +6,8 @@
 
 #controlsUI, #scoreUI, #highscoreUI {
     display: flex;
-    background-color: #ddd;
-    color: #222;;
+    /* background-color: #ddd; */
+    color: palegoldenrod;
     font-size:  20px;
     /* display: inline-block; */
 }
@@ -20,7 +20,7 @@
     min-height: 90vh;
     min-width: 165vh;
     background-image: url(black.jpg);
-    color: palegoldenrod;
+    color: paleturquoise;
     /* position: absolute; */
 }
 
