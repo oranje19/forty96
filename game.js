@@ -7,6 +7,11 @@ document.onkeydown = checkKey;
 function start() {
     for (let x = 1; x <= 16; x++) {
         document.getElementById("t-"+x).innerHTML = "0";
+
+        // if (document.getElementById("t-"+x).innerHTML == "0") {
+        //     document.getElementById("t-"+x).innerHTML.style.color = "transparent"
+        // }
+
     }
 
     let y = Math.ceil(Math.random()*16);
@@ -40,7 +45,7 @@ function updateColors() {
     for (let x = 1; x <= 16; x++) {
         let y;
         if (document.getElementById("t-"+x).innerHTML == "0") {
-            y = 0;
+            y = 0;  // look into inner html to display None (make a condition)
 
         } else {
             y = parseInt(Math.log2(parseInt(document.getElementById("t-"+x).innerHTML)));
@@ -277,4 +282,4 @@ function checkKey(e) {
         document.getElementById("controlsUI").innerHTML = "G";
         gameOver();
     }
-}
+}28

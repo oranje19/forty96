@@ -3,40 +3,43 @@
         <link rel="stylesheet" type="text/css" href="./game.css">
     </head>
     <body onload="start()">
-        Welcome to forty96!
-        <br>
-
-        <div id="game">
-            <div class="tile"><div id="t-1">0</div></div>
-            <div class="tile"><div id="t-2">0</div></div>
-            <div class="tile"><div id="t-3">0</div></div>
-            <div class="tile"><div id="t-4">0</div></div>
-            <div class="tile"><div id="t-5">0</div></div>
-            <div class="tile"><div id="t-6">0</div></div>
-            <div class="tile"><div id="t-7">0</div></div>
-            <div class="tile"><div id="t-8">0</div></div>
-            <div class="tile"><div id="t-9">0</div></div>
-            <div class="tile"><div id="t-10">0</div></div>
-            <div class="tile"><div id="t-11">0</div></div>
-            <div class="tile"><div id="t-12">0</div></div>
-            <div class="tile"><div id="t-13">0</div></div>
-            <div class="tile"><div id="t-14">0</div></div>
-            <div class="tile"><div id="t-15">0</div></div>
-            <div class="tile"><div id="t-16">0</div></div>
+        <div id="board">
+            <span class="header">
+                Welcome to forty96!
+            </span>
+            <br>
+            <div id="game">
+                <div class="tile"><div id="t-1">0</div></div>
+                <div class="tile"><div id="t-2">0</div></div>
+                <div class="tile"><div id="t-3">0</div></div>
+                <div class="tile"><div id="t-4">0</div></div>
+                <div class="tile"><div id="t-5">0</div></div>
+                <div class="tile"><div id="t-6">0</div></div>
+                <div class="tile"><div id="t-7">0</div></div>
+                <div class="tile"><div id="t-8">0</div></div>
+                <div class="tile"><div id="t-9">0</div></div>
+                <div class="tile"><div id="t-10">0</div></div>
+                <div class="tile"><div id="t-11">0</div></div>
+                <div class="tile"><div id="t-12">0</div></div>
+                <div class="tile"><div id="t-13">0</div></div>
+                <div class="tile"><div id="t-14">0</div></div>
+                <div class="tile"><div id="t-15">0</div></div>
+                <div class="tile"><div id="t-16">0</div></div>
+            </div>
+            <br>
+            <br>
+            SCORE: <div id="scoreUI">0</div>
+            <br>
+            HIGH SCORE: <div id="highscoreUI">0</div>
+            <br>
+            You are pressing: <div id="controlsUI"> Press any Arrow key </div>
+    
+            <div id="gameover" onclick="start()">
+                <div class="overlaytext">GAME OVER</div>
+                <div class="overlaytext"><div class="subtext">click anywhere, or press R to start a new game</div></div>
+            </div>
+            <script src="./game.js"></script>
         </div>
-        <br>
-        <br>
-        SCORE: <div id="scoreUI">0</div>
-        <br>
-        HIGH SCORE: <div id="highscoreUI">0</div>
-        <br>
-        You are pressing: <div id="controlsUI"> Press any Arrow key </div>
-
-        <div id="gameover" onclick="start()">
-            <div class="overlaytext">GAME OVER</div>
-            <div class="overlaytext"><div class="subtext">click anywhere, or press R to start a new game</div></div>
-        </div>
-        <script src="./game.js"></script>
         
     </body>
 
