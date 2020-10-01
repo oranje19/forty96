@@ -8,8 +8,12 @@ function start() {
     for (let x = 1; x <= 16; x++) {
         document.getElementById("t-"+x).innerHTML = "0";
 
-        // if (document.getElementById("t-"+x).innerHTML == "0") {
-        //     document.getElementById("t-"+x).innerHTML.style.color = "transparent"
+        // conditions here or maybe set it to "" and convert it back to 0 during the calculation
+
+        // if (document.getElementById("t-"+x).innerHTML === "0") {
+        //     document.getElementById("t-"+x).innerHTML.visibility = "hidden"
+        //     document.getElementById("t-"+x).innerHTML.parentElement.style.display = "none"
+            
         // }
 
     }
@@ -76,16 +80,21 @@ function newTile() {
 
     let res = [];
     for (let x = 1; x < 16; x++) {
-        if (document.getElementById("t-"+x).innerHTML == "0") {
+        // let thisTile = document.getElementById("t-" + x);
+        // if (thisTile.innerHTML === "") {
+        //     thisTile.innerHTML = "0"
+        //     res.push(x);
+        // }
+        if (document.getElementById("t-"+x).innerHTML === "0") {
             res.push(x);
         }
     }
 
     // let y = Math.round(Math.random()+1)*2;
 
-    if (res.length == 0) {
+    if (res.length === 0) {
         //game over
-        if (gameCheck() == false) { gameOver(); }
+        if (gameCheck() === false) { gameOver(); }
     } else {
         document.getElementById("t-" + res[Math.floor(Math.random() * res.length)]).innerHTML = Math.round(Math.random() + 1) * 2;
     }
