@@ -11,6 +11,11 @@
     font-size:  20px;
     /* display: inline-block; */
 }
+
+.instructions {
+    display: flex;
+}
+
 body{
     background: url(black.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -24,6 +29,7 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
 #board {
     display: flex;
     justify-content: center;
@@ -102,10 +108,21 @@ body{
     margin-left: 50px;
 }
 
+.contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35px;
+    margin-top: 250px;
+    margin-bottom: 15px;
+    color: orange;
+    font-size: 25px;
+}
+
 .icons {
     display: flex;
     flex-direction: row;
-    margin-top: 300px;
+    /* margin-top: 300px; */
     margin-left: 50px;
     width: 170px;
     border-radius: 4px;
