@@ -12,6 +12,10 @@
     /* display: inline-block; */
 }
 
+.title {
+    color: transparent;
+}
+
 .instructions {
     display: flex;
     justify-content: flex-end;
