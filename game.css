@@ -13,7 +13,8 @@
 }
 
 .title {
-    color: transparent;
+    /* color: transparent; */
+    font-size: 0px;
 }
 
 .instructions {
