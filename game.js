@@ -1,21 +1,10 @@
-
 let gameOn = false;
-
 document.onkeydown = checkKey;
 
 // loop 16 tiles
 function start() {
     for (let x = 1; x <= 16; x++) {
-        document.getElementById("t-"+x).innerHTML = "0";
-
-        // conditions here or maybe set it to "" and convert it back to 0 during the calculation
-
-        // if (document.getElementById("t-"+x).innerHTML === "0") {
-        //     document.getElementById("t-"+x).innerHTML.visibility = "hidden"
-        //     document.getElementById("t-"+x).innerHTML.parentElement.style.display = "none"
-            
-        // }
-
+        document.getElementById("t-"+x).innerHTML = "";
     }
 
     let y = Math.ceil(Math.random()*16);
@@ -24,22 +13,18 @@ function start() {
     while (y === z) {
         z = Math.round(Math.random()*16);
     }
-
     document.getElementById("t-"+y).innerHTML = ""+Math.round(Math.random()+1)*2;
     document.getElementById("t-"+z).innerHTML = ""+Math.round(Math.random()+1)*2;
-
     updateColors();
 
-    document.getElementById("scoreUI").innerHTML = "0";
+    document.getElementById("scoreUI").innerHTML = "";
     // document.getElementById("highscoreUI").innerHTML = "0";
 
     if (localStorage.getItem("highscore") !== null) {
         document.getElementById("highscoreUI").innerHTML = localStorage.getItem("highscore");
     } else {
-        localStorage.setItem("highscore", "0")
+        localStorage.setItem("highscore", "")
     }
-
-
 
     gameOn = true;
     document.getElementById("gameover").style.display = "none";
@@ -48,9 +33,9 @@ function start() {
 function updateColors() {
     for (let x = 1; x <= 16; x++) {
         let y;
-        if (document.getElementById("t-"+x).innerHTML == "0") {
+        if (document.getElementById("t-"+x).innerHTML === "") {
             y = 0;  // look into inner html to display None (make a condition)
-
+            // document.getElementById("t-"+x).innerHTML.visibility = "hidden"
         } else {
             y = parseInt(Math.log2(parseInt(document.getElementById("t-"+x).innerHTML)));
         }
@@ -66,31 +51,21 @@ function updateColors() {
         } else {
             document.getElementById("t-" + x).parentElement.style.backgroundColor = "#420";
         }
-
     }
 }
 
-
-
 function newTile() {
     if (gameCheck() == false) {
-        gameOver(); 
-        return false; 
+        gameOver();
+        return false;
     }
 
     let res = [];
     for (let x = 1; x < 16; x++) {
-        // let thisTile = document.getElementById("t-" + x);
-        // if (thisTile.innerHTML === "") {
-        //     thisTile.innerHTML = "0"
-        //     res.push(x);
-        // }
-        if (document.getElementById("t-"+x).innerHTML === "0") {
+        if (document.getElementById("t-"+x).innerHTML === "") {
             res.push(x);
         }
     }
-
-    // let y = Math.round(Math.random()+1)*2;
 
     if (res.length === 0) {
         //game over
@@ -98,7 +73,6 @@ function newTile() {
     } else {
         document.getElementById("t-" + res[Math.floor(Math.random() * res.length)]).innerHTML = Math.round(Math.random() + 1) * 2;
     }
-
     updateColors();
 }
 
@@ -110,6 +84,7 @@ function left() {
     if (a || b || c || d) { newTile(); }
     if (gameCheck() == false) { gameOver(); }
 }
+
 function right() {
     let a = row(4, 3, 2, 1);
     let b = row(8, 7, 6, 5);
@@ -118,6 +93,7 @@ function right() {
     if (a || b || c || d) { newTile(); }
     if (gameCheck() == false) { gameOver(); }
 }
+
 function up() {
     let a = row(1, 5, 9, 13);
     let b = row(2, 6, 10, 14);
@@ -126,6 +102,7 @@ function up() {
     if (a || b || c || d) { newTile(); }
     if (gameCheck() == false) { gameOver(); }
 }
+
 function down() {
     let a = row(13, 9, 5, 1);
     let b = row(14, 10, 6, 2);
@@ -136,14 +113,12 @@ function down() {
 }
 
 function row(aa, bb, cc, dd) {
-    
     let inputs = [aa, bb, cc, dd];
-
-    let a = parseInt(document.getElementById("t-"+aa).innerHTML);
-    let b = parseInt(document.getElementById("t-"+bb).innerHTML);
-    let c = parseInt(document.getElementById("t-"+cc).innerHTML);
-    let d = parseInt(document.getElementById("t-"+dd).innerHTML);
-
+    
+    let a = document.getElementById("t-" + aa).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + aa).innerHTML);
+    let b = document.getElementById("t-" + bb).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + bb).innerHTML);
+    let c = document.getElementById("t-" + cc).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + cc).innerHTML);
+    let d = document.getElementById("t-" + dd).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + dd).innerHTML);
     let vals = [];
     let res = [];
 
@@ -158,7 +133,8 @@ function row(aa, bb, cc, dd) {
             if (vals[x] == vals[x+1]) { // merge tiles if equals
 
                 res.push(vals[x] + vals[x+1]);
-                let newScore = parseInt(document.getElementById("scoreUI").innerHTML) + (vals[x] + vals[x + 1]);
+                let thisNum = document.getElementById("scoreUI").innerHTML === "" ? 0 : parseInt(document.getElementById("scoreUI").innerHTML);
+                let newScore = thisNum + (vals[x] + vals[x + 1]);
                 document.getElementById("scoreUI").innerHTML = newScore;
                 
                 if (newScore > parseInt(document.getElementById("highscoreUI").innerHTML)) {
@@ -186,7 +162,7 @@ function row(aa, bb, cc, dd) {
     }
 
     while (z < 4) {
-        document.getElementById("t-"+(inputs[z])).innerHTML = "0";
+        document.getElementById("t-"+(inputs[z])).innerHTML = "";
         output.push(0);
         z += 1;
     }
@@ -196,11 +172,7 @@ function row(aa, bb, cc, dd) {
     } else {
         return true;
     }
-
-    // console.log("" + input[0] + ", " + input[1] + ", " + input[2] + ", " + input[3] + " + " + output[0] + ", " + output[1] + ", " + output[2] + ", " + output[3]);
-
 }
-
 
 function gameCheck() {
     if (rowCheck(1, 2, 3, 4)) {return true; }
@@ -229,10 +201,10 @@ function gameCheck() {
 function rowCheck(aa, bb, cc, dd) {
     let inputs = [aa, bb, cc, dd];
 
-    let a = parseInt(document.getElementById("t-" + aa).innerHTML);
-    let b = parseInt(document.getElementById("t-" + bb).innerHTML);
-    let c = parseInt(document.getElementById("t-" + cc).innerHTML);
-    let d = parseInt(document.getElementById("t-" + dd).innerHTML);
+    let a = document.getElementById("t-" + aa).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + aa).innerHTML);
+    let b = document.getElementById("t-" + bb).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + bb).innerHTML);
+    let c = document.getElementById("t-" + cc).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + cc).innerHTML);
+    let d = document.getElementById("t-" + dd).innerHTML === "" ? 0 : parseInt(document.getElementById("t-" + dd).innerHTML);
 
     let vals = [];
     let res = [];
@@ -243,7 +215,6 @@ function rowCheck(aa, bb, cc, dd) {
     if (d != 0) { vals.push(d); } else { return true; }
 
     for (let x = 0; x < vals.length; x++) {
-        // console.log(vals[x]);
         if (typeof vals[x + 1] !== 'undefined') { // if this exists
             if (vals[x] == vals[x + 1]) { // merge tiles if equals
                 return true;
@@ -291,4 +262,4 @@ function checkKey(e) {
         document.getElementById("controlsUI").innerHTML = "G";
         gameOver();
     }
-}28
+}
