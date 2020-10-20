@@ -36,6 +36,7 @@ function updateColors() {
         if (document.getElementById("t-"+x).innerHTML === "") {
             y = 0;  // look into inner html to display None (make a condition)
             // document.getElementById("t-"+x).innerHTML.visibility = "hidden"
+            
         } else {
             y = parseInt(Math.log2(parseInt(document.getElementById("t-"+x).innerHTML)));
         }
